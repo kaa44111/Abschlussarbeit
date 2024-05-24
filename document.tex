@@ -1,0 +1,122 @@
+% durch Austauschen dieser Zeilen kann die Sprache des Templates geändert werden
+\PassOptionsToPackage{main=ngerman}{babel}
+%\PassOptionsToPackage{main=english}{babel}
+
+\documentclass[thesis]{mi-document}
+
+\bachelor % im Falle einer Masterarbeit \master
+
+% Variablen, die für das Deckblatt und Metadaten verwendet werden
+\title{Evaluierung von Einsatzmöglichkeiten einer Deep Learning Applikation zur Detektion gelabelter Merkmale in Bildern}
+\author{Amina Kasa}
+\semester{Sommersemester 2024}
+\course{Bachelorarbeit}
+\module{Fakultät Informatik und Mathematik}
+\dozent{Prof. Dr. Timo Baumann}
+\studid{3190755}
+\studSemester{Medizinische Informatik}
+\phone{0941/133742666} % Optional
+\studSubject{Medizinische Informatik}
+\firstReviewer{Prof. Dr. Timo Baumann}
+\secondReviewer{[Zweitgutachter]}
+\advisor{GEFASOFT Automatisierung und Software GmbH}
+\address{Klenzestr. 2a, 93051 Regensburg}{} % Optional
+\mail{kasaamina@gmail.com}
+\studMail{amina.kasa@st.oth-regensburg.de}
+\dateHandedIn{[Abgabetermin der Arbeit]}
+\keywords{Enter;key;words;here}
+
+\bibliographystyle{apacite}
+
+% Falls Sie die Abkürzung zum Einbinden von Grafiken benutzen möchten. Erläuterung fnden Sie im Abschnitt zu Abbildungen.
+\input{config}
+
+\usepackage{emptypage}
+\pagenumbering{roman}
+\begin{document}
+% ---------------------------------------------------------------
+
+ % Die Nummerierung beginnt mit der Titelseite (= Seite 1), soll aber erst ab der ersten Inhaltsseite (Einleitung) angezeigt werden.
+    \pagestyle{empty}
+
+
+% Das Deckblatt erstellen
+    \maketitle
+ % ---------------------------------------------------------------
+ 
+% Abstract hinzufügen
+    \clearpage
+    \doublespacing
+
+    \input{misc/abstract}
+    \clearpage 
+    %\stepcounter{page}
+% ---------------------------------------------------------------
+%Inhaltsverzeichnisse  
+\pagestyle{plain}
+\singlespacing
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+\tableofcontents % Optional
+\newpage
+%\stepcounter{page}
+
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\listoffigures % Optional
+\newpage
+%\stepcounter{page}
+
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\listoftables % Optional
+\newpage
+%\stepcounter{page}
+
+\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+\lstlistoflistings % Optional
+\newpage
+% --------------------------------------------------------------
+
+\pagenumbering{arabic}
+\pagestyle{headings} % Seitennummern und Kapitelbezeichnungen anzeigen
+    
+    % hier beginnt der eigentliche Inhalt der Arbeit
+    \include{chapters/einleitung}
+    % \include{ziele}
+    \include{stand_der_technik}
+    \include{gestaltungsrichtlinien}
+    \include{empfehlungen}
+    \include{zusammenfassung}
+    
+    % Kapitelbezeichnung in der rechten oberen Ecke entfernen
+\clearpage
+\pagestyle{plain}
+    
+% Literaturverzeichnis anzeigen
+% kleinerer Zeilenabstand, damit es nicht so gestreckt aussieht
+\onehalfspacing
+\bibliography{literature}
+\doublespacing
+
+% Anhang
+\appendix
+\include{anhang}
+
+% Tipps zur Verwendung von LaTeX
+\include{latex}
+
+\begin{singlespace}
+\KOMAoptions{parskip=full}
+% Erklärung zur Urherberschaft (urheberschaft.tex) anhängen
+\include{urheberschaft}
+
+% Erklärung zur Lizenzierung der Arbeit (lizenzierung.tex) anhängen
+\include{lizenzierung}
+
+% Stichwortverzeichnis anzeigen. Weiß nicht, warum das nicht nach dem Inhaltsverzeichnis kommt.
+\printindex
+\end{singlespace}
+
+% Inhalt des Datenträgers. Gehört meiner Meinung nach zum Anhang, aber was weiß ich schon. AS
+\newpage
+\input{datenträger}
+
+\end{document}
