@@ -44,6 +44,13 @@
     \maketitle
  % ---------------------------------------------------------------
  
+%\begin{singlespace}
+\pagestyle{plain}
+\KOMAoptions{parskip=full}
+% Erklärung zur Urherberschaft (urheberschaft.tex) anhängen
+\include{chapters/urheberschaft}
+\newpage
+ 
 % Abstract hinzufügen
     \clearpage
     \doublespacing
@@ -80,11 +87,11 @@
     
     % hier beginnt der eigentliche Inhalt der Arbeit
     \include{chapters/einleitung}
-    % \include{ziele}
-    \include{stand_der_technik}
-    \include{gestaltungsrichtlinien}
-    \include{empfehlungen}
-    \include{zusammenfassung}
+    \include{chapters/stand_der_technik}
+    \include{chapters/bilddaten}
+    \include{chapters/modellierung_training}
+    \include{chapters/validierung}
+    \include{chapters/fazit_ausblick}
     
     % Kapitelbezeichnung in der rechten oberen Ecke entfernen
 \clearpage
@@ -98,18 +105,14 @@
 
 % Anhang
 \appendix
-\include{anhang}
+\include{misc/anhang}
 
-% Tipps zur Verwendung von LaTeX
-\include{latex}
 
 \begin{singlespace}
 \KOMAoptions{parskip=full}
-% Erklärung zur Urherberschaft (urheberschaft.tex) anhängen
-\include{urheberschaft}
 
 % Erklärung zur Lizenzierung der Arbeit (lizenzierung.tex) anhängen
-\include{lizenzierung}
+\include{misc/lizenzierung}
 
 % Stichwortverzeichnis anzeigen. Weiß nicht, warum das nicht nach dem Inhaltsverzeichnis kommt.
 \printindex
@@ -117,6 +120,6 @@
 
 % Inhalt des Datenträgers. Gehört meiner Meinung nach zum Anhang, aber was weiß ich schon. AS
 \newpage
-\input{datenträger}
+\input{misc/datenträger}
 
 \end{document}
