@@ -26,16 +26,64 @@
 \keywords{Enter;key;words;here}
 
 \bibliographystyle{apacite}
-
 % Falls Sie die Abkürzung zum Einbinden von Grafiken benutzen möchten. Erläuterung fnden Sie im Abschnitt zu Abbildungen.
-\input{config}
+\input{misc/config}
 
 \usepackage{emptypage}
 \pagenumbering{roman}
+
 \begin{document}
 % ---------------------------------------------------------------
 \pagestyle{empty}
 % Das Deckblatt erstellen
-\maketitle
+ \input{expose/0-frontpage}
+ \newpage
 
+ % Abstract hinzufügen
+    \clearpage
+    \doublespacing
+
+    \input{chapters/0-abstract}
+    \clearpage 
+
+% ---------------------------------------------------------------
+%Inhaltsverzeichnisse  
+\pagestyle{plain}
+\singlespacing
+\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
+\tableofcontents % Optional
+\newpage
+
+% \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+% \listoffigures % Optional
+% \newpage
+
+% \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+% \listoftables % Optional
+% \newpage
+
+% \addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+% \lstlistoflistings % Optional
+% \newpage
+% --------------------------------------------------------------
+\pagenumbering{arabic}
+\pagestyle{headings} % Seitennummern und Kapitelbezeichnungen anzeigen
+    
+    % hier beginnt der eigentliche Inhalt der Arbeit
+    \include{expose/1-Einleitung}
+    \include{expose/2-Zielsetzung}
+    \include{expose/3_Methodik}
+    \include{expose/4_Gliederung}
+    \include{expose/5_Ablauf}
+    
+    % Kapitelbezeichnung in der rechten oberen Ecke entfernen
+\clearpage
+\pagestyle{plain}
+
+% --------------------------------------------------------------   
+% Literaturverzeichnis anzeigen
+% kleinerer Zeilenabstand, damit es nicht so gestreckt aussieht
+\onehalfspacing
+\bibliography{literature}
+\doublespacing
 \end{document}

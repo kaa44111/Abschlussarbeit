@@ -78,6 +78,8 @@
 
 \RequirePackage{setspace}
 
+
+
 % page style
 \RequirePackage[automark]{scrlayer-scrpage}
 \KOMAoptions{onpsinit={\setstretch{1}}}%ausgleich zu setspace
@@ -173,6 +175,43 @@
 	{\abstractname}%
 	\fi
 }{}
+
+\usepackage{graphicx}
+\usepackage[titles]{tocloft}
+
+%%% You can modify the numbers to regulate the spacing between dots
+\renewcommand{\cftsecdotsep}{1}
+\renewcommand\cftsecleader{\bfseries\large\cftdotfill{\cftsecdotsep}}
+\renewcommand{\cftsubsecdotsep}{1}
+\renewcommand\cftsubsecleader{\normalsize\cftdotfill{\cftsubsecdotsep}}
+\renewcommand{\cftsubsubsecdotsep}{1}
+\renewcommand\cftsubsubsecleader{\small\cftdotfill{\cftsubsubsecdotsep}}
+
+\newcommand\secdotfill{\textbf{\cftdotfill{\cftsecdotsep}}}
+\newcommand\subsecdotfill{\cftdotfill{\cftsubsecdotsep}}
+
+%Table of contents
+\renewcommand*\contentsname{Table of Contents}
+
+\newcommand{\preliminaryTOCbox}[1]{
+    \vspace{1em}
+    \noindent\fbox{%
+        \parbox{\columnwidth}{%
+            {#1}
+        }%
+    }
+}
+
+% \newcommand\preliminaryTOCend{
+% \item \textbf{Conclusion} \secdotfill tbd
+    
+%     \item[] \hspace{-1cm} \textbf{List of References} \secdotfill tbd
+%     \item[] \hspace{-1cm} \textbf{List of Figures} \secdotfill tbd
+%     \item[] \hspace{-1cm} \textbf{List of Tables} \secdotfill tbd
+%     \item[] \hspace{-1cm} \textbf{List of Abbreviations} \secdotfill tbd
+%     \item[] \hspace{-1cm} \textbf{Annex} \secdotfill tbd
+%     \item[] \hspace{-1cm} \textbf{Declaration of Authorship} \secdotfill tbd
+%     }
 
 % lower line spacing for lists
 \usepackage{enumitem}

@@ -1,0 +1,93 @@
+
+
+% \newlength\headpicwd
+% \setlength{\headpicwd}{0.2\pdfpagewidth} % image width of physical page?
+% \newcommand\printlogo{%
+%   \AddToShipoutPictureBG*{%
+%     \AtStockUpperLeft{%
+%       \raisebox{-2cm}{%
+%       \hspace{2.5cm}
+%         % centred with respect to physical page ..?
+%         % \hspace*{\dimexpr 0.5\pdfpagewidth - 0.5\headpicwd\relax}%
+%         \includegraphics[keepaspectratio=true, width=0.33\pdfpagewidth]{images/template/unili_logo.jpg}%
+%       }%
+%     }%
+%   }%
+% }
+
+\begin{titlepage}
+\setstretch{1.5}
+
+\vspace*{-30pt}
+\includegraphics[width=0.5\textwidth]{images/Unbenannt}
+\hfill\includegraphics[width=0.5\textwidth]{images/logo_firma}
+\vspace{20pt}
+
+\centering
+\Large
+\setstretch{1.5}
+\textbf{\getInstitute}\\
+\large
+\textbf{\getModule}\\
+\normalsize
+\textbf{Studiengang \getStudSubject}
+
+\vspace{60pt}
+\setstretch{1.5}
+\huge
+\textbf{Exposé zur}
+
+%\vspace{5pt}
+\setstretch{1.5}
+\Huge
+\textbf{\getWorkType}
+
+\normalsize
+
+\textmd{\getAuthor}
+\vspace{20pt}
+
+\Large
+\textbf{\getTitle}
+
+\vspace{20pt}
+
+\normalsize
+
+
+%\ifcurrentbaselanguage{German}{
+%\getWorkType im \getStudSubject{}\\
+%at \getInstitute
+%}
+
+%\ifcurrentbaselanguage{English}{
+%\getWorkType in \getStudSubject{}\\
+%at \getInstitute
+%}
+
+\setstretch{1.5}
+
+\vfill
+
+\begin{tabularx}{\linewidth}{@{}l<{:}>{\RaggedRight\arraybackslash}X@{}}
+\ifcurrentbaselanguage{German}{
+
+Vorgelegt von&\getAuthor\\
+Matrikelnummer&\getStudID\\
+E-Mail &\getStudMail\\
+Erstgutachter&\getFirstReviewer\\
+Zweitgutachter&\getSecondReviewer\\
+Betreuende Firma&\getAdvisor\\
+Abgegeben am&\getDateHandedIn
+
+}
+
+\end{tabularx}
+\end{titlepage}
+
+
+% \thispagestyle{empty}
+% \quad \addtocounter{page}{-1}
+% \newpage
+% \pagenumbering{roman}   
+
