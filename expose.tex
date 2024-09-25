@@ -25,7 +25,7 @@
 \dateHandedIn{[Abgabetermin der Arbeit]}
 \keywords{Enter;key;words;here}
 
-\bibliographystyle{apacite}
+\bibliographystyle{apalike}
 % Falls Sie die Abkürzung zum Einbinden von Grafiken benutzen möchten. Erläuterung fnden Sie im Abschnitt zu Abbildungen.
 \input{misc/config}
 
@@ -40,11 +40,11 @@
  \newpage
 
  % Abstract hinzufügen
-    \clearpage
-    \doublespacing
+%    \clearpage
+%    \doublespacing
 
-    \input{chapters/0-abstract}
-    \clearpage 
+%    \input{expose/0-Zusammenfassung}
+%    \clearpage 
 
 % ---------------------------------------------------------------
 %Inhaltsverzeichnisse  
@@ -71,10 +71,11 @@
     
     % hier beginnt der eigentliche Inhalt der Arbeit
     \include{expose/1-Einleitung}
-    \include{expose/2-Zielsetzung}
-    \include{expose/3_Methodik}
-    \include{expose/4_Gliederung}
-    \include{expose/5_Ablauf}
+    \include{expose/2-ElevatorPitch}
+    \include{expose/3-Zielsetzung}
+    \include{expose/4-Methodik}
+    \include{expose/5-Gliederung}
+    \include{expose/6-Ablauf}
     
     % Kapitelbezeichnung in der rechten oberen Ecke entfernen
 \clearpage
@@ -84,6 +85,6 @@
 % Literaturverzeichnis anzeigen
 % kleinerer Zeilenabstand, damit es nicht so gestreckt aussieht
 \onehalfspacing
-\bibliography{literature}
+\bibliography{references}
 \doublespacing
 \end{document}

@@ -1,0 +1,37 @@
+\chapter{Methodik}\label{sec:exp_methodik}
+\begin{enumerate}
+    \item Datenbeschaffung und -vorbereitung:
+    
+    \begin{itemize}
+        \item Datensätze: Verwendung von industriellen Bilddatensätzen mit relevanten Objekten und Defekten aus dem Betrieb. Es werden konkrete Beispiele verwendet, die in der Praxis nicht mittels traditioneller Bildverarbeitung gelöst werden könnten.
+        \item Labeling: Die Bereiche der Bilder die den Fehler zeigen, werden für jeden Bild händisch aufgezeichnet.
+    \end{itemize}
+    
+    \item Modellimplementierung:
+    \begin{itemize}
+        \item Software: Einsatz von Python mit Bibliotheken wie Pytorch
+        \item Modellanpassung: Anpassung der U-Net-Architektur, z. B. durch Modifizierung der verschiedenen Layers um die effizienz und geschwindigkeit des trainier vorgangs zu verbessern.
+        \item Hyperparameter-Tuning: Systematische Optimierung von Lernrate, Batch-Größe und anderen Parametern
+    \end{itemize}
+    
+    \item Training und Validierung::
+    \begin{itemize}
+        \item Trainingsstrategie:  Verwendung von K-Fold-Cross-Validation.
+        \item Datenaugmentation: Einsatz von Techniken wie Rotation, Spiegelung, Skalierung und Helligkeitsvariation.
+        \item Regularisierung: Anwendung von Methoden wie Dropout oder Early Stopping.
+    \end{itemize}
+
+    \item Evaluation:
+    \begin{itemize}
+        \item Metriken: Bewertung anhand von Metriken wie Intersection over Union (IoU), Dice-Koeffizient, Präzision, Recall und F1-Score.
+        \item Analyse der Rauschresistenz: Untersuchung der Modellleistung bei unterschiedlichen Rauschpegeln und -arten.
+    \end{itemize}
+    
+    \item Analyse und Diskussion:
+    \begin{itemize}
+        \item Ergebnisinterpretation: Identifikation von Erfolgsfaktoren und Limitierungen.
+        \item Praktische Implikationen: Bewertung der Anwendbarkeit in industriellen Szenarien.
+        \item Empfehlungen: Entwicklung von Leitlinien für die Implementierung.
+    \end{itemize}
+    
+\end{enumerate}
