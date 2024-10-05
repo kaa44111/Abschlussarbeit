@@ -19,3 +19,21 @@ Die formalen und inhaltlichen Gestaltungsrichtlinien der Dokumentvorlage sollen 
 \end{enumerate}
 
 \section{Aufbau der Arbeit}
+
+\section{Grundlagen}
+
+\subsection{Qualitätssicherung}
+Die fortschreitende Digitalisierung und Automatisierung in der industriellen Produktion hat die industrielle Bildverarbeitung zu einer Schlüsseltechnologie gemacht. Als Teilgebiet des Maschinellen Sehens (Computer Vision) ermöglicht sie es Maschinen und Systemen, visuelle Informationen aus ihrer Umgebung zu erfassen und zu interpretieren. Dadurch können Aufgaben wie Qualitätskontrolle, Inspektion, Positionierung und Vermessung durchgeführt werden. So werden Produktionsprozesse optimiert, Fehler frühzeitig erkannt und die Effizienz gesteigert \cite{cognex_grundlagen_nodate}.
+
+In der industriellen Sichtprüfung wird überprüft, ob ein Prüfteil den spezifischen Vorgaben entspricht, beispielsweise hinsichtlich Abmessungen, Formen oder der Anwesenheit bestimmter Merkmale. Dieser Prozess umfasst mehrere aufeinanderfolgende Schritte, beginnend mit der Bildaufnahme und -vorverarbeitung, über die Identifikation relevanter Bildbereiche bis hin zur Analyse und Bewertung der Objekteigenschaften \cite[S. 15–16]{demant_industrielle_2011}.
+
+Für ein umfassendes Bildverständnis ist es nach der Erstellung eines digitalen Bildes wichtig, nicht nur das Vorhandensein bestimmter Merkmale zu erkennen, sondern auch deren genaue Position und Ausdehnung im Bild zu bestimmen. Diese Aufgabe wird als Objektdetektion definiert. Sie liefert wertvolle Informationen für das semantische Verständnis von Bildern und Videos und findet Anwendung in Bereichen wie Bildklassifikation, Verhaltensanalyse, Gesichtserkennung und autonomem Fahren \cite{zhao_object_2019}. Dennoch können Eigenschaften wie spezielle Texturen, Formen, Farben oder Größen von Objekten die zuverlässige Detektion erschweren, da Fehler mit dem Hintergrund verschmelzen und somit eine präzise Analyse verhindern.
+
+\subsection{Deep Learning}
+Convolutional Neural Networks (CNNs) haben sich hierbei als effektive Methode erwiesen, um Maschinen das "Sehen" beizubringen und komplexe Muster in Bildern zu erkennen. Sie haben sich in der Bildverarbeitung etabliert, insbesondere bei Aufgaben der Bildklassifikation, Objekterkennung und Bildsegmentierung \cite{qi_review_2020}. (Ergnzen nur hier!!!)
+
+Ziel dieser Arbeit ist es, eine Deep-Learning-Anwendung zu entwickeln und zu evaluieren, die bestimmte gekennzeichnete Merkmale in Bildern automatisch erkennen kann. Dabei wird untersucht, wie mithilfe von CNNs und der semantischen Segmentierung trotz Herausforderungen wie begrenzter Datenmenge und Bildrauschen eine zuverlässige Erkennung möglich ist.
+
+ In den vergangenen Jahren hat sich gezeigt, dass Deep-Learning-Modelle, insbesondere Convolutional Neural Networks (CNNs), eine neue Ära der Bildverarbeitung eingeleitet haben. Sie erzielen signifikant bessere Ergebnisse bei Aufgaben wie der Bildklassifikation, Objekterkennung und Segmentierung, was zu einer deutlichen Leistungssteigerung in verschiedenen Anwendungsbereichen geführt hat.\cite{minaee_image_2022}
+
+Ein CNN besteht aus mehreren Schichten, von denen jede spezifische Funktionen auf die Eingabedaten anwendet. Zu den Hauptkomponenten gehören die Eingabeschicht, konvolutionale Schichten, Aktivierungsschichten, Pooling-Schichten und vollständig verbundene Schichten. Diese Architektur ermöglicht es CNNs, komplexe Merkmale aus Bildern zu extrahieren und zu interpretieren.\cite{jogin_feature_2018}

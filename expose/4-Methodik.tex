@@ -1,24 +1,26 @@
 \chapter{Methodik}\label{sec:exp_methodik}
+\cite{arafin_deep_2024} -->> sehr wichtige Quelle zur realisierung der Arbeit.
 \begin{enumerate}
     \item Datenbeschaffung und -vorbereitung:
     
     \begin{itemize}
-        \item Datensätze: Verwendung von industriellen Bilddatensätzen mit relevanten Objekten und Defekten aus dem Betrieb. Es werden konkrete Beispiele verwendet, die in der Praxis nicht mittels traditioneller Bildverarbeitung gelöst werden könnten.
-        \item Labeling: Die Bereiche der Bilder die den Fehler zeigen, werden für jeden Bild händisch aufgezeichnet.
+        \item Datensätze: Verwendung von industriellen Bilddatensätzen mit relevanten Objekten und Defekten aus dem Betrieb. Es werden konkrete Beispiele verwendet, die in der Praxis mittels traditioneller Segmentierungs methoden, keine gewünschten ergebnisse erziehlt haben.
+        \item Labeling: Die Bereiche der Bilder die den Fehler zeigen, werden für jeden Bild händisch aufgezeichnet. Dies erfordet hintergrund wissen, über die gesuchten Fehlern in den Bildern, da sie auch bei blosem Auge sehr schwer zu erkennen sind.
+        \item Datenvorbereitung: Es werden Methoden wie Binning und aufteilung in Patches angewendet.
     \end{itemize}
     
     \item Modellimplementierung:
     \begin{itemize}
-        \item Software: Einsatz von Python mit Bibliotheken wie Pytorch
-        \item Modellanpassung: Anpassung der U-Net-Architektur, z. B. durch Modifizierung der verschiedenen Layers um die effizienz und geschwindigkeit des trainier vorgangs zu verbessern.
-        \item Hyperparameter-Tuning: Systematische Optimierung von Lernrate, Batch-Größe und anderen Parametern
+        \item Software: Die Implementierung erfolgt in Python unter Verwendung von Bibliotheken wie PyTorch für das Modelltraining sowie Matplotlib zur Visualisierung von Ergebnissen.
+        \item Modellanpassung: Die U-Net-Architektur wird durch gezielte Modifikationen der Layer-Struktur angepasst, um sowohl die Effizienz als auch die Geschwindigkeit des Trainings zu verbessern.
+        \item Hyperparameter-Tuning: Eine systematische Optimierung von Hyperparametern wie Lernrate, Batch-Größe und weiteren Modellparametern wird durchgeführt, um die Leistung des Modells zu maximieren.
     \end{itemize}
     
-    \item Training und Validierung::
+    \item Training und Validierung:
     \begin{itemize}
-        \item Trainingsstrategie:  Verwendung von K-Fold-Cross-Validation.
-        \item Datenaugmentation: Einsatz von Techniken wie Rotation, Spiegelung, Skalierung und Helligkeitsvariation.
-        \item Regularisierung: Anwendung von Methoden wie Dropout oder Early Stopping.
+        \item Trainingsstrategie: Ein UNet-Modell wird implementiert, das auf der Kombination verschiedener Verlustfunktionen, wie Binary Cross Entropy und Dice Loss, basiert. Die Verwendung von Lernraten-Schedulern, wie dem StepLR, spielt eine zentrale Rolle, um die Effizienz und den Fortschritt des Trainingsprozesses zu optimieren.
+        \item Datenaugmentation: Techniken wie Rotation, Spiegelung, Skalierung und Helligkeitsvariation zur Datenaugmentation angewendet, um das Modell robuster zu machen und die Generalisierung zu verbessern 
+        \item Regularisierung: Regularisierungstechniken wie Dropout oder Early Stopping integriert, um das Modell besser gegen Überanpassung (Overfitting) abzusichern und die allgemeine Performance auf unbekannten Daten zu verbessern.
     \end{itemize}
 
     \item Evaluation:

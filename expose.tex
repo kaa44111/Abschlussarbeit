@@ -1,4 +1,5 @@
 \PassOptionsToPackage{main=ngerman}{babel}
+\PassOptionsToPackage{numbers}{natbib}
 %\PassOptionsToPackage{main=english}{babel}
 
 \documentclass[thesis]{mi-document}
@@ -25,12 +26,16 @@
 \dateHandedIn{[Abgabetermin der Arbeit]}
 \keywords{Enter;key;words;here}
 
-\bibliographystyle{apalike}
+\usepackage[numbers]{natbib}
+\bibliographystyle{apacite}
 % Falls Sie die Abkürzung zum Einbinden von Grafiken benutzen möchten. Erläuterung fnden Sie im Abschnitt zu Abbildungen.
 \input{misc/config}
 
 \usepackage{emptypage}
 \pagenumbering{roman}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
 
 \begin{document}
 % ---------------------------------------------------------------
@@ -53,6 +58,11 @@
 \addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 \tableofcontents % Optional
 \newpage
+
+% Abkürzungsverzeichnis
+\clearpage
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
 
 % \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
 % \listoffigures % Optional

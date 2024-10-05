@@ -62,6 +62,7 @@
 \RequirePackage{etoolbox}
 
 \RequirePackage{graphicx}
+\RequirePackage{subcaption}
 \RequirePackage{wrapfig}
 \RequirePackage{color}
 
@@ -178,6 +179,9 @@
 
 \usepackage{graphicx}
 \usepackage[titles]{tocloft}
+\usepackage{subcaption}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
 
 %%% You can modify the numbers to regulate the spacing between dots
 \renewcommand{\cftsecdotsep}{1}
