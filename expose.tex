@@ -1,8 +1,12 @@
 \PassOptionsToPackage{main=ngerman}{babel}
-\PassOptionsToPackage{numbers}{natbib}
+%\PassOptionsToPackage{numbers}{natbib}
 %\PassOptionsToPackage{main=english}{babel}
 
 \documentclass[thesis]{mi-document}
+
+% Microtypografie aktivieren
+\usepackage{microtype}
+
 
 \bachelor % im Falle einer Masterarbeit \master
 
@@ -26,7 +30,7 @@
 \dateHandedIn{[Abgabetermin der Arbeit]}
 \keywords{Enter;key;words;here}
 
-\usepackage[numbers]{natbib}
+%\usepackage[numbers]{natbib}
 \bibliographystyle{apacite}
 % Falls Sie die Abkürzung zum Einbinden von Grafiken benutzen möchten. Erläuterung fnden Sie im Abschnitt zu Abbildungen.
 \input{misc/config}
@@ -76,12 +80,23 @@
 % \lstlistoflistings % Optional
 % \newpage
 % --------------------------------------------------------------
+
+\newacronym{ai}{AI}{Artificial Intelligence}
+\newacronym{ibv}{IBV}{industrielle Bildverarbeitung}
+\newacronym{dl}{DL}{Deep Learning}
+\newacronym{cnn}{CNNs}{Convolutional Neural Networks}
+\newacronym{knn}{KNNs}{Künstlichen Neuronalen Netzen}
+\newacronym{bv}{BV}{Bildverarbeitung}
+\newacronym{cv}{CV}{Computer Vision}
+\newacronym{oe}{OE}{Objekterkennung}
+\newacronym{ml}{ML}{Maschinelles Lernen}
+
 \pagenumbering{arabic}
 \pagestyle{headings} % Seitennummern und Kapitelbezeichnungen anzeigen
     
     % hier beginnt der eigentliche Inhalt der Arbeit
     \include{expose/1-Einleitung}
-    \include{expose/2-ElevatorPitch}
+    %\include{expose/2-ElevatorPitch}
     \include{expose/3-Zielsetzung}
     \include{expose/4-Methodik}
     \include{expose/5-Gliederung}

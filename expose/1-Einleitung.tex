@@ -1,28 +1,20 @@
-\newacronym{ai}{AI}{Artificial Intelligence}
-\newacronym{ibv}{IBV}{industrielle Bildverarbeitung}
-\newacronym{dl}{DL}{Deep Learning}
-\newacronym{cnn}{CNNs}{Convolutional Neural Networks}
-\newacronym{ann}{ANN}{Artificial Neural Networks}
-\newacronym{bv}{BV}{Bildverarbeitung}
-\newacronym{cv}{CV}{Computer Vision}
-\newacronym{od}{OD}{Objektdetektion}
-
-
-
 \chapter{Einleitung}\label{sec:exp_einleitung}
 
-Die \gls{ibv} ist ein Teilgebiet des Maschinellen Sehens  auch \gls{cv} genannt. Die \gls{ibv} ermöglicht es Maschinen und Systemen, visuelle Informationen aus Produktionsprozessen und Produkten zu erfassen und auszwerten. Dadurch können Aufgaben wie Qualitätskontrolle, Inspektion, Positionierung und Vermessung durchgeführt werden. Im Vordergrund steht dabei immer, die Qualität transparent zu machen, um die Prozess- oder Produktqualität automatisch oder durch manuelles Eingreifen des Bedienpersonals zu verbessern. Durch den Einsatz von automatisierten Sichtprüfsystemen wird es möglich, mit geringen laufenden Kosten vollständige Prüfungen in der industriellen Fertigung durchzuführen. Im Vergleich zu stichprobenartigen Qualitätskontrollen werden so Reaktionszeiten verkürzt und damit Ausschusskosten reduziert.\citep{cognex_grundlagen_nodate} 
+Die \gls{ibv} ist ein essenzieller Bestandteil moderner Fertigungsprozesse und Qualitätskontrollsysteme. Als Teilgebiet des maschinellen Sehens, auch bekannt als \gls{cv}, ermöglicht sie Maschinen und Systemen, visuelle Informationen aus Produktionsprozessen und Produkten zu erfassen und zu analysieren. Dadurch können Aufgaben wie \textbf{Qualitätskontrolle}, \textbf{Inspektion}, \textbf{Positionierung} und \textbf{Vermessung} automatisiert durchgeführt werden, was zur Steigerung der Produktqualität und Effizienz der Prozesse und Kostensenkung beiträgt \citep{cognex_grundlagen_nodate}.
 
-Die \gls{od} ist eine Technik der \gls{bv} dass die identifikation und erkennung von objekten in einem Bild oder Video ermöglicht. Die realisierung der Objektdetektion erfolgt mittels traditionelle \gls{bv}-algorithmen, Algorithmen mittels Maschinelles Leren und \gls{dl}-Algorithmen. Mit Hilfe von \gls{dl} können im Gegensatz zu herkömmlichen \gls{bv}-methoden auch komplexe und variierende Prüfaufgaben, die bisher der menschlichen Begutachtung vorbehalten waren, effizient und kostengünstig automatisiert werden.\cite{kaur_systematic_2024}
+Nach \citep{jahne_digitale_2024} ist unter \gls{cv} ein Computersystem zu verstehen, das die gleiche Aufgabe wie ein biologisches System erfüllt, nämlich aus Bildern zu erkennen, was in der Welt ist und wo es sich befindet. Während Menschen aufgrund evolutionärer Entwicklungen visuelle Informationen intuitiv verarbeiten, haben \gls{cv}-Algorithmen nach wie vor Schwierigkeiten, dieselben Aufgaben zuverlässig zu bewältigen \citep[S.~3]{szeliski_computer_2022}. 
 
-Der Einsatz von Deep Learning führt aber auch zu Veränderungen im Gesamtprozess. Neue Teilprozesse wie das Training von künstlichen neuronalen Netzen (von engl. \gls{ann}) sind bereits hinreichend wissenschaftlich untersucht. Ein Beispiel für die Anwendung von Objektdetektio mittels \gls{dl}-Modellen werden in der Industrie häufig zur Oberflächeninspektion von Produkten wie Metall, Gewebe und Stahl eingesetzt. Dazu gehört die Erkennung von Kratzern, Rissen und Verformungen auf der Oberfläche. \gls{cnn} sind eine der am häufigsten verwendeten Architekturen für diese Anwendung.\citep{saberironaghi_defect_2023}
+In den letzten Jahren allerdings hat die Komplexität industrieller Problemstellungen stark zugenommen, sodass traditionelle Methoden der Bildverarbeitung oft nicht mehr ausreichen \citep[S.~442]{suse_bildverarbeitung_2014}. \gls{knn} übertreffen mittlerweile bei idealen Bilddaten sogar die menschliche Wahrnehmung \citep{dodge_study_2017}. Durch den Einsatz von \gls{dl}-Methoden können komplexe und variierende Prüfaufgaben wie \textbf{Objektdetektion}, \textbf{Bildklassifikation} und \textbf{Segmentierung} effizient automatisiert werden \citep{kaur_systematic_2024, manakitsa_review_2024}.
 
-In dieser Arbeit möchte ich die Entwicklung und Evaluierung einer \gls{dl}-Anwendung vorstellen, die bestimmte gelabelte Merkmale in Bildern aus der Industire automatisch erkennen kann. Dabei wird untersucht, wie mit Hilfe von \gls{cnn} und semantischer Segmentierung eine zuverlässige Erkennung bzw \gls{od} trotz Herausforderungen wie begrenzter Datenmenge und Bildrauschen möglich ist.
+Der Einsatz von \gls{dl} führt aber auch zu Veränderungen im Gesamtprozess. Neue Teilprozesse wie das Training von \gls{knn} sind bereits hinreichend wissenschaftlich untersucht. Insbesondere erfordern diese Modelle große Mengen an Trainingsdaten, um zuverlässig zu funktionieren, und sind empfindlich gegenüber Bildrauschen und anderen Störfaktoren \citep{dodge_study_2017}. In industriellen Anwendungen stehen jedoch oft nur begrenzte Datenmengen zur Verfügung, und die Bilddaten können aufgrund von Produktionsbedingungen Rauschen oder Qualitätsmängel aufweisen.
+
+\textbf{Ziel dieser Arbeit} ist es daher, die Entwicklung und Evaluierung einer \gls{dl}-Anwendung vorzustellen, die spezifische Merkmale in industriellen Bildern automatisch erkennen und segmentieren kann. Insbesondere wird die UNet-Architektur betrachtet, die sich in ähnlichen Anwendungsfällen bewährt hat.
 
 \section{Motivation}\label{expose_motivation}
-Im Rahmen meines Praxissemesters bei der Gefasoft GmbH in Regensburg hatte ich die Gelegenheit, mich mit Projekten der \gls{ibv} zu befassen. Im Bildverarbeitungslabor wurde mir ein Einblick in die vielfältigen Prozesse einer Sichtprüfung im Bereich der \gls{ibv} gewährt.
 
-In der industriellen Sichtprüfung wird überprüft, ob ein Prüfteil den spezifischen Vorgaben entspricht, beispielsweise hinsichtlich Abmessungen, Formen oder der Anwesenheit bestimmter Merkmale. Dieser Prozess umfasst mehrere aufeinanderfolgende Schritte, beginnend mit der Bildaufnahme und -vorverarbeitung, über die Identifikation relevanter Bildbereiche bis hin zur Analyse und Bewertung der Objekteigenschaften (Siehe Abbildung \ref{fig:vorgehensmodell} ) \cite[S. 15–16]{demant_industrielle_2011}.
+Im Rahmen meines Praxissemesters bei der Gefasoft GmbH in Regensburg hatte ich die Gelegenheit, mich intensiv mit unterschiedlichen Projekten der \gls{ibv} zu befassen. Im Bildverarbeitungs-Labor konnte ich einen tiefen Einblick in die vielfältigen Projekte der Sichtprüfung gewinnen. Zu den typischen Aufgaben in diesem Bereich zählen unter anderem die Objekterkennung, Oberflächeninspektion und Vollständigkeitsprüfung \cite[S. 5]{demant_industrielle_2011}.
+
+Die Umsetzung der genannten Prozesse umfasst eine Reihe von Schritten, die von der Bildaufnahme und -vorverarbeitung bis zur Analyse und Bewertung der Bilddaten reichen (s. Abbildung \ref{fig:vorgehensmodell}). Im Rahmen dessen werden spezifische Vorgaben und Ziele definiert, um die gewünschten Informationen aus einem Bild zu extrahieren und in der realen Welt existierende Objekte zu erfassen. Im Anschluss erfolgt die Separierung der Objekte vom Hintergrund. Diesbezüglich werden Regionen konstanter Merkmale und Diskontinuitäten durch eine Segmentierung identifiziert \cite[S.13]{jahne_digitale_2024}.
 
 \begin{figure}[h]
     \centering
@@ -31,58 +23,52 @@ In der industriellen Sichtprüfung wird überprüft, ob ein Prüfteil den spezif
     \label{fig:vorgehensmodell}
 \end{figure}
 
-Dabei ist es wichtig, Bedingungen zu schaffen, unter denen eine Maschine optimal ,,sehen`` kann. Durch den Einsatz von Kameras, Beleuchtungssystemen und Bildverarbeitungsalgorithmen wird ein aussagekräftiges Bild erzeugt, um eine zuverlässige Fehlererkennung zu gewährleisten. In der Folge erfolgt eine Vorverarbeitung der Bilder unter Einsatz von Bildverbesserungsalgorithmen, um eine Optimierung der Helligkeit und des Kontrastes des Bildes zu erreichen. Die interessierenden Objekte müssen sich dabei klar von anderen Objekten und dem Hintergrund unterscheiden, um eine einfache und eindeutige Isolierung bzw. Segmentierung dieser Bereiche zu gewährleisten (\citealp[S.16]{demant_industrielle_2011};\citealp[S. 211,589]{suse_bildverarbeitung_2014}). Diese schritte erleichtern die Bildanalyse, so dass in den meisten Fällen eine \gls{od} mit einfacheren Verfahren wie das Schwellwertverfahren, Histogrammanalyse, Liniendetektion usw. möglich ist.
-
-Im Rahmen meiner Tätigkeit wurde vorwiegend auf die firmeneigene Software Viper.NET \citealp{vipernet_about_nodate} zurückgegriffen, welche alle relevanten Schnittstellen zur Realisierung einer Bildverarbeitungssoftware bereitstellt. Für die umsetzung der Bildanalyse verwendete ich,die in der Software vorimplementierten Tools die auf basis von traditionellen Algrothmen der \gls{bv} konstuirert sind. 
-
-Bei der behandlung eines Fallbeispiels zur Fehlererkennung wurde ersichtlich, dass bei einer starken Rauschintensität sowie einem geringen Kontrast, bei welcher eine klare Unterscheidung des Objekts vom Hintergrund nicht möglich war, keine zufriedenstellenden Resultate erzielt werden konnten. Ein Beispiel sind feine Defekte in den Musterteilen (Siehe Abbildung \ref{fig:image2}), die große Ähnlichkeiten mit den anderen Regionen des Bildes haben. Infolgedessen war keine klare, logische Abgrenzung der gesuchten Fehler zu den Musterteilen an sich möglich.Dies führte dazu, dass Bereiche des Bildes, die keinen Fehler aufwiesen, als Fehler klassifiziert wurden. Ebenso wurden Defekte nicht als solche identifiziert. Eine korrekte Detektion der Merkmale war in dem Fall mittels traditioneller Bildverarbeitungsmethoden nicht möglich.
+Für eine exakte Objekterkennung ist es in vielen Fällen erforderlich, die genannten Schritte mehrfach zu durchlaufen und \textbf{die Parameter}(besser die Parameter erklären) anzupassen. Dies stellt jedoch lediglich eine einfache Aufgabe dar, sofern sich ein Objekt klar vom Hintergrund unterscheidet. Eigenschaften wie spezielle Texturen, Formen, Farben oder Größen von Objekten können die zuverlässige Detektion erschweren, da Fehler mit dem Hintergrund verschmelzen und somit eine präzise Analyse verhindern. Dies wird durch die Beispiele in Abbildung \ref{fig:image2} verdeutlicht, die Fälle darstellen, die in der Praxis nicht mit traditionellen Algorithmen gelöst werden können.
 
 \begin{figure}[h]
 
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=0.9\linewidth, height=6cm]{expose/Fehler.jpg} 
-\caption{Verschmutzung an einem Draht}
+\caption{Verschmutzung an einem Draht; das gesuchte Merkmal ist aufgrund seiner geringen Größe kaum zu erkennen. Die Verschmutzungen haben denselben Grauwert wie der Hintergrund.}
 \label{fig:subim1}
 \end{subfigure}
 \begin{subfigure}{0.5\textwidth}
 \includegraphics[width=0.9\linewidth, height=6cm]{expose/Kratzer.jpg}
-\caption{Kratzer am Musterteil}
+\caption{Kratzer an einem Musterteil; die Fehler weisen sehr ähnliche Muster wie die fehlerfreien Abschnitte des Musterteils auf. Die Graustufen des gesuchten Merkmals ähneln stark denen des Bildhintergrunds.}
 \label{fig:subim2}
 \end{subfigure}
 
-\caption{Beispiel einer Sichtprüfung aus der Praxis. Die gesuchten Merkmale wurden händisch gekennzeichnet um einen Übersicht für den Leser zu verschaffen.}
+\caption{Beispiele aus der Praxis der Sichtprüfung. Die Bilder wurden bereits mittels Bildvorverarbeitungsalgorithmen verbessert, um eine höhere Bildqualität zu erzielen. Die gesuchten Merkmale wurden händisch gekennzeichnet, um dem Leser einen Überblick zu verschaffen.}
 
 \label{fig:image2}
 \end{figure}
 
-Um die oben gennanten Herausforderungen zu lösen werden mehr fortgeschirttene Algorithmen verwendet. Dieser ansatz weckte meiner interesse, mein wissen mehr in dem Bereich der fortgeschrittenen Methoden der Objekterkennung, zu erweitern. Deep Learning algorithmen ins besondere \gls{cnn} haben sich in den letzten Jahren als effektive Methode erwiesen, um Maschinen das "Sehen" beizubringen und komplexe Muster in Bildern zu erkennen. Sie haben sich in der Bildverarbeitung etabliert, insbesondere bei Aufgaben der Bildklassifikation, Objekterkennung und Bildsegmentierung. \citealp{qi_review_2020}\citealp{manakitsa_review_2024}\citealp{kaur_systematic_2024} 
+Durch die tiefen Schichten neuronaler Netze können komplexe Merkmalsrepräsentationen gelernt werden, die feinere Details und abstrakte Muster erkennen lassen. Beispielsweise haben \gls{cnn} in der Oberflächeninspektion hohe Genauigkeiten bei der Erkennung von Defekten auf Metalloberflächen erreicht \citep{saberironaghi_defect_2023}.
+
+Angesichts dieser Fortschritte möchte ich in meiner Arbeit untersuchen, wie \gls{dl}-Methoden. Ziel ist es zu demonstrieren, dass mithilfe dieser Methoden auch in anspruchsvollen Szenarien eine präzise Objekterkennung und Segmentierung möglich ist, in denen traditionelle Methoden versagen.
 
 \section{Problemstellung}\label{expose_problemstellung}
 
-Wie im \ref{expose_motivation} erwähnt, können bestimmte Eigenschaften wie spezielle Texturen, Formen, Farben oder Größen von Objekten die zuverlässige Detektion erschweren, da Fehler mit dem Hintergrund verschmelzen und somit eine präzise Analyse verhindern. Als lösung wurde eine \gls{cnn}-Basierte Objekterkennung vorgeschlagen um die Detektion von bestimmten Fehlerhaften Merkmale in Bildern zu identifizieren.
+Ein Beispiel für den Einsatz von \gls{dl}-Modellen in der \gls{ibv} ist ShuffleDefectNet, das auf dem NEU-Datensatz eine Genauigkeit von 99,75 \% erreichte \cite{saberironaghi_defect_2023}. Dieses Modell erfordert eine große Anzahl von fehlerfreien und fehlerhaften Beispielen in den Trainingsdaten. Es wird mit korrekt gelabelten Daten trainiert, um zwischen fehlerfreien und fehlerhaften Mustern zu unterscheiden. Der NEU-Datensatz umfasst insgesamt 1.800 Bilder, die in sechs verschiedene Defektklassen mit jeweils 300 Bildern unterteilt sind.
 
-In vielen Anwendungsfällen konnte durch \gls{cnn} eine sehr hohe Genauigkeit erreicht werden. Ein Beispiel ist der Einsatz von ShuffleDefectNet, das auf einem NEU-Datensatz eine Genauigkeit von 99,75 \% erreichte. Diese Methode erfordert eine große Anzahl von fehlerfreien und fehlerhaften Beispielen in den Trainingsdaten. Das System wird mit korrekt gelabelten Daten trainiert, sodass es lernt, zwischen fehlerfreien und fehlerhaften Mustern zu unterscheiden. \cite{saberironaghi_defect_2023}
+Im Gegensatz dazu sind Bildverarbeitungsaufgaben aus der Praxis meist auf spezifische Produkte, Materialien oder Defekte fokussiert. Ein industrieller Datensatz könnte beispielsweise ausschließlich Bilder eines speziellen Musterteils mit bestimmten Arten von Kratzern oder Defekten enthalten. Da es für verschiedene Anwendungsfälle keine öffentlich zugänglichen Datensätze gibt, entstehen häufig relativ kleine Datensätze, deren zu detektierende Merkmale oder Regionen in den Bildern manuell annotiert werden müssen.
 
-In der industriellen Sichtprüfung steht jedoch oft nur eine begrenzte Anzahl spezifischer, fehlerhafter und fehlerfreier Musterteile zur Verfügung. Da es für jeden Anwendungsfall keine öffentlich zugänglichen Datensätze gibt, entsteht ein relativ kleiner Datensatz, dessen zu detektierende Regionen manuell annotiert werden müssen.
-\gls{ann} bedürfen einer überaus großen Datenmenge wenn sie mittels Supervised Learning trainiert werden. Somit kann eine gute Generalisierungsfähigkeit zu entwickeln und somit gute Ergebnisse zu liefern. \cite{lecun_deep_2015}. 
+Zusammenfassend besteht die Problemstellung darin:
 
-Im Rahmen meiner Forschung sind die Fortschritte im medizinischen Bereich von besonderem Interesse, da die herausforderungen und ähnlichkeiten mit meinen Datensatz übereinstimmen. Ein beispiel dafür ist das U-Net-Modell von Ronneberger et al. (2015) \cite{ronneberger_u-net_2015} von besonderer Relevanz. Dieses wurde speziell für die effiziente Segmentierung komplexer Mikroskopiebilder in der Biomedizin entwickelt und stellt somit eine wichtige Architektur in diesem Kontext dar.
-Das Netzwerk wird mit sehr wenigen Bildern trainiert und zeigt dennoch eine überlegene Leistung bei Aufgaben der biomedizinischen Bildsegmentierung \cite{ronneberger_u-net_2015}. 
-Es stützt sich intensiv auf Datenaugmentation, um die begrenzte Anzahl annotierter Beispiele effizient zu nutzen.
-Diese Eigenschaften machen U-Net zu einem idealen Kandidaten für Anwendungen in der industriellen Qualitätskontrolle, bei denen nur eingeschränkte Trainingsdaten verfügbar sind.
+\begin{itemize} 
+\item \textbf{Spezialisierte Aufgabenstellung}: Das Modell soll spezifische Merkmale oder Anomalien erkennen, die nur in diesem speziellen Kontext relevant sind. 
+\item \textbf{Begrenzte Datenmenge}: Aufgrund der Spezialisierung ist die Anzahl der verfügbaren Trainingsdaten oft gering. Es ist aufwändig und kostspielig, große Mengen an industriellen Bilddaten zu sammeln und zu annotieren, insbesondere wenn es um seltene Defekte oder spezifische Produktionsbedingungen geht. 
+\end{itemize}
 
-In den letzten Jahren wurde die U-Net-Architektur erfolgreich in verschiedenen Bereichen der Medizin eingesetzt\cite{azad_medical_2024,siddique_u-net_2021}. Ihre Anpassungsfähigkeit und Effizienz bei der Verarbeitung komplexer Bilddaten unter schwierigen Bedingungen legen nahe, dass sie auch für die Herausforderungen in der industriellen Bildverarbeitung geeignet sein könnte.
+Künstliche neuronale Netze (\gls{knn}) erfordern in der Regel große Datenmengen, wenn sie mittels überwachtem Lernen trainiert werden, um eine gute Generalisierungsfähigkeit zu entwickeln und somit zuverlässige Ergebnisse zu liefern \cite{lecun_deep_2015}.
 
+Im Rahmen dieser Arbeit sind die Fortschritte im medizinischen Bereich von besonderem Interesse, da die dortigen Herausforderungen denen unseres Datensatzes ähneln. Ein Beispiel dafür ist das U-Net-Modell von Ronneberger et al. (2015) \cite{ronneberger_u-net_2015}, das speziell für die effiziente Segmentierung komplexer Mikroskopiebilder in der Biomedizin entwickelt wurde.
 
-\section{Grundlagen}
+Das U-Net-Modell kann mit sehr wenigen Bildern trainiert werden und zeigt dennoch eine überlegene Leistung bei Aufgaben der biomedizinischen Bildsegmentierung. Es nutzt intensiv Datenaugmentation, um die begrenzte Anzahl annotierter Beispiele effizient zu nutzen.
 
-Für ein umfassendes Bildverständnis ist es nach der Erstellung eines digitalen Bildes wichtig, nicht nur das Vorhandensein bestimmter Merkmale zu erkennen, sondern auch deren genaue Position und Ausdehnung im Bild zu bestimmen. Diese Aufgabe wird als Objektdetektion definiert. Sie liefert wertvolle Informationen für das semantische Verständnis von Bildern und Videos und findet Anwendung in Bereichen wie Bildklassifikation, Verhaltensanalyse, Gesichtserkennung und autonomem Fahren \cite{zhao_object_2019}. Dennoch können Eigenschaften wie spezielle Texturen, Formen, Farben oder Größen von Objekten die zuverlässige Detektion erschweren, da Fehler mit dem Hintergrund verschmelzen und somit eine präzise Analyse verhindern.
+In den letzten Jahren wurde die U-Net-Architektur erfolgreich in verschiedenen Bereichen der Medizin eingesetzt \cite{azad_medical_2024, siddique_u-net_2021}. Ihre Anpassungsfähigkeit und Effizienz bei der Verarbeitung eingeschränkter Trainingsdaten und stark verrauschter Bilder legen nahe, dass sie auch für die Herausforderungen in der industriellen Bildverarbeitung geeignet sein könnte.
 
-\subsection{Deep Learning}
-Convolutional Neural Networks (CNNs) haben sich hierbei als effektive Methode erwiesen, um Maschinen das "Sehen" beizubringen und komplexe Muster in Bildern zu erkennen. Sie haben sich in der Bildverarbeitung etabliert, insbesondere bei Aufgaben der Bildklassifikation, Objekterkennung und Bildsegmentierung \cite{qi_review_2020}. (Ergnzen nur hier!!!)
+Zwar stehen industrielle Anwendungen im Vordergrund dieser Arbeit; die Methoden werden jedoch allgemein entworfen, um auch auf andere Aufgaben adaptierbar zu sein.
 
-Ziel dieser Arbeit ist es, eine Deep-Learning-Anwendung zu entwickeln und zu evaluieren, die bestimmte gekennzeichnete Merkmale in Bildern automatisch erkennen kann. Dabei wird untersucht, wie mithilfe von CNNs und der semantischen Segmentierung trotz Herausforderungen wie begrenzter Datenmenge und Bildrauschen eine zuverlässige Erkennung möglich ist.
-
- In den vergangenen Jahren hat sich gezeigt, dass Deep-Learning-Modelle, insbesondere Convolutional Neural Networks (CNNs), eine neue Ära der Bildverarbeitung eingeleitet haben. Sie erzielen signifikant bessere Ergebnisse bei Aufgaben wie der Bildklassifikation, Objekterkennung und Segmentierung, was zu einer deutlichen Leistungssteigerung in verschiedenen Anwendungsbereichen geführt hat.\cite{minaee_image_2022}
-
-Ein CNN besteht aus mehreren Schichten, von denen jede spezifische Funktionen auf die Eingabedaten anwendet. Zu den Hauptkomponenten gehören die Eingabeschicht, konvolutionale Schichten, Aktivierungsschichten, Pooling-Schichten und vollständig verbundene Schichten. Diese Architektur ermöglicht es CNNs, komplexe Merkmale aus Bildern zu extrahieren und zu interpretieren.\cite{jogin_feature_2018}
+\section{Elevator Pitch}\label{sec:exp_elevator}
+In dieser Bachelorarbeit wird der Einsatz einer Deep-Learning-Methode, speziell der U-Net-Architektur, zur automatischen Detektion von annotierten Merkmalen in Bildern untersucht. Die Implementierung, Erweiterung und Evaluierung eines U-Net-Modells zeigt , wie trotz Herausforderungen wie begrenzter Datensätze eine präzise und effiziente Erkennung relevanter Merkmale erreicht werden kann. Ziel ist es, einen Beitrag zur Verbesserung der automatisierten Bildanalyse in Anwendungsbereichen zu leisten, in denen traditionelle Methoden an ihre Grenzen stoßen.

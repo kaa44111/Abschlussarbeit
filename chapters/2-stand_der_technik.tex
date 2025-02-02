@@ -1,16 +1,26 @@
-\chapter{Literaturrecherche und Stand der Technik}\label{sec:stand_der_technik}
+\chapter{Theoretische Grundlagen und Stand der Technik}\label{sec:stand_der_technik}
 
-Es gibt zahlreiche Ratgeber\index{Ratgeber} für das wissenschaftliche Arbeiten und Schreiben. Die Handbücher unterscheiden sich in inhaltlichen Schwerpunkt, praktischer Orientierung und Vertiefung der einzelnen Themen. Drei sehr empfehlenswerte Ratgeber sollen kurz vorgestellt werden.
+\section{Industrielle Bildverarbeitung}
+ (Vielleicht noch die traditionelle Methoden, Maschine Learnig und Deep Learning erklären)
+ 
+\section{Qualitätssicherung}
+Die fortschreitende Digitalisierung und Automatisierung in der industriellen Produktion hat die industrielle Bildverarbeitung zu einer Schlüsseltechnologie gemacht. Als Teilgebiet des Maschinellen Sehens (Computer Vision) ermöglicht sie es Maschinen und Systemen, visuelle Informationen aus ihrer Umgebung zu erfassen und zu interpretieren. Dadurch können Aufgaben wie Qualitätskontrolle, Inspektion, Positionierung und Vermessung durchgeführt werden. So werden Produktionsprozesse optimiert, Fehler frühzeitig erkannt und die Effizienz gesteigert \cite{cognex_grundlagen_nodate}.
 
-\cite{karmasin2012gestaltung} bieten einen sehr knappen und praktisch orientierten Ratgeber. Es werden inhaltliche und formale Anforderungen an wissenschaftliche Arbeiten wie inhaltlicher Aufbau der Kapitel, Bewertungskriterien und formale Aspekte wie Gliederung behandelt. Daneben enthält der Ratgeber ein eigenes Kapitel mit Tipps zur Formatierung mit Word.
+In der industriellen Sichtprüfung wird überprüft, ob ein Prüfteil den spezifischen Vorgaben entspricht, beispielsweise hinsichtlich Abmessungen, Formen oder der Anwesenheit bestimmter Merkmale. Dieser Prozess umfasst mehrere aufeinanderfolgende Schritte, beginnend mit der Bildaufnahme und -vorverarbeitung, über die Identifikation relevanter Bildbereiche bis hin zur Analyse und Bewertung der Objekteigenschaften \cite[S. 15–16]{demant_industrielle_2011}.
 
-Das Handbuch von \cite{esselborn2012richtig} konzentriert sich auf die Frage nach dem richtigen wissenschaftlichen Sprachstil. Es werden konkrete Regeln und Übungen vorgestellt um sprachliche Präzision und gedankliche Klarheit im Text zu erreichen. Daneben wird in einem eigenen Kapitel auf die häufigsten Fehler beim wissenschaftlichen Schreiben hingewiesen.
+Für ein umfassendes Bildverständnis ist es nach der Erstellung eines digitalen Bildes wichtig, nicht nur das Vorhandensein bestimmter Merkmale zu erkennen, sondern auch deren genaue Position und Ausdehnung im Bild zu bestimmen. Diese Aufgabe wird als Objektdetektion definiert. Sie liefert wertvolle Informationen für das semantische Verständnis von Bildern und Videos und findet Anwendung in Bereichen wie Bildklassifikation, Verhaltensanalyse, Gesichtserkennung und autonomem Fahren \cite{zhao_object_2019}. Dennoch können Eigenschaften wie spezielle Texturen, Formen, Farben oder Größen von Objekten die zuverlässige Detektion erschweren, da Fehler mit dem Hintergrund verschmelzen und somit eine präzise Analyse verhindern.
 
-\cite{balzert2011wissenschaftliches} bieten einen sehr ausführlichen Ratgeber zum wissenschaftlichen Arbeiten. Im ersten Teil werden Qualitätskriterien und Methoden als Grundlagen wissenschaftlicher Arbeit aufgezeigt. Im zweiten Teil werden verschiedene wissenschaftliche Artefakte also Textformen gegenübergestellt und der formale Aufbau wissenschaftlicher Arbeiten beleuchtet. Im dritten Teil werden Empfehlungen zum Erstellungsprozess einer Arbeit mit Projektplan etc. gegeben. Im letzten Teil werden verschiedene Aspekte der Präsentation behandelt, wie z. B. Vortragsformen mit und ohne visuelle Unterstützung oder der richtige Vortragsstil.
+\section{Deep Learning}
 
-\section{Überblick über die Industrielle Bildverarbeitung}
+Convolutional Neural Networks (CNNs) haben sich hierbei als effektive Methode erwiesen, um Maschinen das "Sehen" beizubringen und komplexe Muster in Bildern zu erkennen. Sie haben sich in der Bildverarbeitung etabliert, insbesondere bei Aufgaben der Bildklassifikation, Objekterkennung und Bildsegmentierung \cite{qi_review_2020}. (Ergnzen nur hier!!!)
 
-\section{Deep Learning in der Bildverarbeitung}
+Ziel dieser Arbeit ist es, eine Deep-Learning-Anwendung zu entwickeln und zu evaluieren, die bestimmte gekennzeichnete Merkmale in Bildern automatisch erkennen kann. Dabei wird untersucht, wie mithilfe von CNNs und der semantischen Segmentierung trotz Herausforderungen wie begrenzter Datenmenge und Bildrauschen eine zuverlässige Erkennung möglich ist.
 
+ In den vergangenen Jahren hat sich gezeigt, dass Deep-Learning-Modelle, insbesondere Convolutional Neural Networks (CNNs), eine neue Ära der Bildverarbeitung eingeleitet haben. Sie erzielen signifikant bessere Ergebnisse bei Aufgaben wie der Bildklassifikation, Objekterkennung und Segmentierung, was zu einer deutlichen Leistungssteigerung in verschiedenen Anwendungsbereichen geführt hat.\cite{minaee_image_2022}
+
+Ein CNN besteht aus mehreren Schichten, von denen jede spezifische Funktionen auf die Eingabedaten anwendet. Zu den Hauptkomponenten gehören die Eingabeschicht, konvolutionale Schichten, Aktivierungsschichten, Pooling-Schichten und vollständig verbundene Schichten. Diese Architektur ermöglicht es CNNs, komplexe Merkmale aus Bildern zu extrahieren und zu interpretieren.\cite{jogin_feature_2018}
+
+\subsection{Supervised Learning}
+\subsection{Unsupervised Learning}
+\subsection{Das U-Net Modell}
 \section{Aktuelle Forschung und Entwicklungen}
-

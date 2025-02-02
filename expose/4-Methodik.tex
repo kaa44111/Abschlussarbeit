@@ -1,39 +1,73 @@
 \chapter{Methodik}\label{sec:exp_methodik}
-\cite{arafin_deep_2024} -->> sehr wichtige Quelle zur realisierung der Arbeit.
-\begin{enumerate}
-    \item Datenbeschaffung und -vorbereitung:
-    
+In diesem Kapitel wird die Vorgehensweise zur Implementierung und Evaluierung des U-Net-Modells für die semantische Segmentierung von industriellen Bildern detailliert beschrieben. Die Methodik gliedert sich in die folgenden Hauptschritte: Datenbeschaffung und -vorbereitung, Modellimplementierung, Training und Validierung sowie die Evaluation. Die theoretischen Grundlagen und Verfahren basieren auf der einschlägigen Literatur: \cite{khaledyan_enhancing_2023, ketkar_deep_2021, noauthor_torchvision_nodate}
+
+\paragraph{Datenerfassung und -vorbereitung}    
+
+\begin{itemize} 
+
+\item \textbf{Datensätze}: Es wurden Bilddatensätze ausgewählt, die Objekte und Defekte enthalten, welche mit traditionellen Methoden in der Praxis schwer zu erkennen sind.
+
+\item \textbf{Annotation}: Die Bereiche in den Bildern, die Defekte aufweisen, wurden für jedes Bild manuell markiert. Dieser Prozess erfordert fundiertes Fachwissen über die spezifischen Fehler, da diese selbst mit bloßem Auge oft schwer erkennbar sind. Durch die manuelle Annotation wird sichergestellt, dass die Trainingsdaten von hoher Qualität sind und das Modell effektiv lernen kann.
+
+\item \textbf{Datenaufbereitung}: Um die Daten optimal für das Modell aufzubereiten und ein effizientes Training zu ermöglichen, wurden verschiedene Methoden angewendet:
     \begin{itemize}
-        \item Datensätze: Verwendung von industriellen Bilddatensätzen mit relevanten Objekten und Defekten aus dem Betrieb. Es werden konkrete Beispiele verwendet, die in der Praxis mittels traditioneller Segmentierungs methoden, keine gewünschten ergebnisse erziehlt haben.
-        \item Labeling: Die Bereiche der Bilder die den Fehler zeigen, werden für jeden Bild händisch aufgezeichnet. Dies erfordet hintergrund wissen, über die gesuchten Fehlern in den Bildern, da sie auch bei blosem Auge sehr schwer zu erkennen sind.
-        \item Datenvorbereitung: Es werden Methoden wie Binning und aufteilung in Patches angewendet.
+        \item \textbf{Binning}: Reduzierung der Bildauflösung durch Zusammenfassen von Pixelwerten, um das Rauschen zu minimieren und die Rechenleistung zu optimieren.
+        \item \textbf{Aufteilung in Patches}: Die Bilder wurden in kleinere Segmente (Patches) unterteilt, um die Datenmenge zu erhöhen und dem Modell zu ermöglichen, lokale Merkmale besser zu erfassen.
     \end{itemize}
+        
+\end{itemize}
     
-    \item Modellimplementierung:
+\paragraph{Modellimplementierung}
+\begin{itemize} 
+
+\item \textbf{Software und Werkzeuge}: Die Implementierung erfolgte in Python unter Verwendung von Bibliotheken wie PyTorch für das Training des Modells und Matplotlib zur Visualisierung der Ergebnisse. PyTorch bietet eine flexible Plattform für die Entwicklung neuronaler Netze und erleichtert das Experimentieren mit unterschiedlichen Architekturen und Hyperparametern. Das Training wurde auf einer NVIDIA GeForce GTX1060 6GB GPU durchgeführt.
+
+\item \textbf{Anpassung des Modells}: Die U-Net-Architektur wurde durch gezielte Modifikationen der Layer-Struktur angepasst, um sowohl die Effizienz als auch die Geschwindigkeit des Trainings zu verbessern:
     \begin{itemize}
-        \item Software: Die Implementierung erfolgt in Python unter Verwendung von Bibliotheken wie PyTorch für das Modelltraining sowie Matplotlib zur Visualisierung von Ergebnissen.
-        \item Modellanpassung: Die U-Net-Architektur wird durch gezielte Modifikationen der Layer-Struktur angepasst, um sowohl die Effizienz als auch die Geschwindigkeit des Trainings zu verbessern.
-        \item Hyperparameter-Tuning: Eine systematische Optimierung von Hyperparametern wie Lernrate, Batch-Größe und weiteren Modellparametern wird durchgeführt, um die Leistung des Modells zu maximieren.
-    \end{itemize}
-    
-    \item Training und Validierung:
-    \begin{itemize}
-        \item Trainingsstrategie: Ein UNet-Modell wird implementiert, das auf der Kombination verschiedener Verlustfunktionen, wie Binary Cross Entropy und Dice Loss, basiert. Die Verwendung von Lernraten-Schedulern, wie dem StepLR, spielt eine zentrale Rolle, um die Effizienz und den Fortschritt des Trainingsprozesses zu optimieren.
-        \item Datenaugmentation: Techniken wie Rotation, Spiegelung, Skalierung und Helligkeitsvariation zur Datenaugmentation angewendet, um das Modell robuster zu machen und die Generalisierung zu verbessern 
-        \item Regularisierung: Regularisierungstechniken wie Dropout oder Early Stopping integriert, um das Modell besser gegen Überanpassung (Overfitting) abzusichern und die allgemeine Performance auf unbekannten Daten zu verbessern.
+        \item \textbf{Anpassung der Filteranzahl}: Die Anzahl der Filter in den Convolutional Layers wurde angepasst, um ein Gleichgewicht zwischen Modellkomplexität und Rechenaufwand zu finden.
+        \item \textbf{Einsatz von Batch-Normalisierung}: Integration von Batch-Normalization-Layern zur Stabilisierung des Trainingsprozesses.
+        \item \textbf{Aktivierungsfunktionen}: Experimentieren mit verschiedenen Aktivierungsfunktionen, um die Leistungsfähigkeit des Modells zu optimieren.
     \end{itemize}
 
-    \item Evaluation:
+\item \textbf{Hyperparameteroptimierung}: Eine systematische Anpassung der Hyperparameter wurde durchgeführt, um die Modellleistung zu maximieren. Zu den optimierten Parametern gehören:
     \begin{itemize}
-        \item Metriken: Bewertung anhand von Metriken wie Intersection over Union (IoU), Dice-Koeffizient, Präzision, Recall und F1-Score.
-        \item Analyse der Rauschresistenz: Untersuchung der Modellleistung bei unterschiedlichen Rauschpegeln und -arten.
+        \item \textbf{Lernrate}: Anpassung der Lernrate mithilfe von Lernraten-Schedulern wie dem StepLR, um die Konvergenz zu beschleunigen.
+        \item \textbf{Batchgröße}: Testen verschiedener Batchgrößen, um einen optimalen Kompromiss zwischen Trainingszeit und Stabilität zu finden.
+        \item \textbf{Anzahl der Epochen}: Festlegung einer optimalen Anzahl von Trainingsdurchläufen, um Überanpassung zu vermeiden.
     \end{itemize}
+
+\end{itemize}
     
-    \item Analyse und Diskussion:
-    \begin{itemize}
-        \item Ergebnisinterpretation: Identifikation von Erfolgsfaktoren und Limitierungen.
-        \item Praktische Implikationen: Bewertung der Anwendbarkeit in industriellen Szenarien.
-        \item Empfehlungen: Entwicklung von Leitlinien für die Implementierung.
-    \end{itemize}
+\paragraph{Training und Validierung}
+\begin{itemize} 
+
+\item \textbf{Trainingsstrategie}: Das U-Net-Modell wurde implementiert und mit einer Kombination aus verschiedenen Verlustfunktionen wie Binary Cross-Entropy (BCE) und Dice Loss trainiert. Diese Kombination ermöglicht es, sowohl pixelweise Fehler als auch die Gesamtstruktur der segmentierten Objekte zu berücksichtigen. Die Verwendung von Lernraten-Schedulern, beispielsweise dem StepLR, war entscheidend, um die Effizienz und den Fortschritt des Trainings zu optimieren.
+
+\item \textbf{Datenaugmentation}: Um die Robustheit des Modells zu erhöhen und die Generalisierungsfähigkeit zu verbessern, wurden Techniken wie Rotation, Spiegelung, Skalierung und Helligkeitsvariationen angewendet.
+
+\item \textbf{Regularisierung}: Es wurden Regularisierungstechniken integriert, um das Modell vor Überanpassung (Overfitting) zu schützen.
+
+\end{itemize}
+
+\paragraph{Evaluation}
+\begin{itemize} 
+
+\item \textbf{Bewertungsmethoden}: Die Leistung des Modells wurde anhand verschiedener Metriken beurteilt: 
+    \begin{itemize} 
+    \item \textbf{Intersection over Union (IoU)}: Messung der Überlappung zwischen vorhergesagter und tatsächlicher Segmentierung. 
+    \item \textbf{Dice-Koeffizient}: Ähnlich dem IoU, jedoch sensibler für kleine Objekte und Ungleichgewichte im Datensatz.
+    \item \textbf{Präzision und Recall}: Bewertung der Genauigkeit und Vollständigkeit der Vorhersagen. 
+    \item \textbf{F1-Score}: Harmonisches Mittel von Präzision und Recall, um ein Gleichgewicht zwischen beiden zu erreichen. \end{itemize}
+            
+\item \textbf{Analyse der Rauschresistenz}: Die Modellleistung wurde unter verschiedenen Rauschpegeln und -arten untersucht, um die Robustheit in realen Anwendungsszenarien zu bewerten.
+\end{itemize}
+            
+\paragraph{Analyse und Diskussion}
+\begin{itemize} 
+
+\item \textbf{Interpretation der Ergebnisse}: Die Ergebnisse wurden analysiert, um Erfolgsfaktoren und Grenzen des Modells zu identifizieren. Besonderes Augenmerk lag darauf, wie die Anpassungen der U-Net-Architektur und die Datenvorbereitungsmethoden die Modellleistung beeinflusst haben.
+
+\item \textbf{Praktische Relevanz}: Die Anwendbarkeit des Modells in industriellen Szenarien wurde beurteilt, einschließlich Aspekten wie Implementierungsaufwand, Laufzeit und Skalierbarkeit.
+
+\end{itemize}
     
-\end{enumerate}

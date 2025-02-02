@@ -1,8 +1,12 @@
-\chapter{Vorläufige Gliederung}
-\label{sec:exp_gliederung}
+\chapter{Vorläufige Gliederung}\label{sec:exp_gliederung}
+Die vorliegende Arbeit beginnt mit einer Einführung in das Thema, welche in ihrer Struktur und ihrem Inhalt der Einleitung des ersten und zweiten Kapitels des vorliegenden Exposés ähnelt.
+In der Folge erfolgt eine systematische Erschließung der relevanten Literatur. Dabei werden grundlegende Konzepte präsentiert. Die für die Arbeit zentralen Begriffe wie "industrielle Bildverarbeitung" und "Deep Learning" werden in diesem Kontext näher erläutert und in ihrer Bedeutung für die vorliegende Untersuchung herausgearbeitet. In diesem Kontext werden aktuelle Forschungsergebnisse sowie der Stand der Technik in den relevanten Bereichen erörtert.
+Im Folgenden wird die angewandte Methodik detailliert beschrieben, wie bereits in Abschnitt \ref{sec:exp_methodik} ausführlich erläutert. Dies umfasst die Präparierung der Bilddaten, die Modellierung und das Training des U-Net Modells sowie die Validierung und Bewertung der Ergebnisse.
+Abschließend werden die Ergebnisse zusammengefasst und im Hinblick auf die Forschungsfragen diskutiert. Ein Ausblick auf zukünftige Arbeiten rundet die Arbeit ab und bietet Perspektiven für weiterführende Forschung.
 
+\section{Visualisierte Darstellung}
 % Provide an expected Table of Content of the final thesis.
-
+\centering
 \preliminaryTOCbox{
 % You can remove the "box" by deleting the \preliminaryTOCbox command
 \begin{enumerate}[label=\arabic*,font=\bfseries] 
@@ -15,45 +19,49 @@
             \item Aufbau der Arbeit \subsecdotfill i
         \end{enumerate}
         
-    \item \textbf{Literaturrecherche und Stand der Technik} \secdotfill  i
+    \item \textbf{Theoretische Grundlagen und Stand der Technik} \secdotfill  i
         \begin{enumerate}[label*=.\arabic*]
-            \item Überblick über die Industrielle Bildverarbeitung \subsecdotfill i
-            \item Deep Learning in der Bildverarbeitung \subsecdotfill i
-            \item Aktuelle Forschung und Entwicklungen \subsecdotfill i
-
+        \item Grundlagen der Objektdetektion \subsecdotfill i
+            \begin{enumerate}[label*=.\arabic*]
+            \item Industrielle Bildverarbeitung \subsecdotfill i
+            \item Deep Learning \subsecdotfill i
+                \begin{enumerate}[label*=.\arabic*]
+                \item Supervised Learning \subsecdotfill i
+                \item Unsupervised Learning \subsecdotfill i
+                \end{enumerate}
+            \end{enumerate}
+        \item Aktuelle Forschung und Entwicklungen \subsecdotfill i
         \end{enumerate}
     
-    \item \textbf{Präparierung der Bilddaten} \secdotfill  i
+    \item \textbf{Implementierung und Experimente} \secdotfill  i
+    \begin{enumerate}[label*=.\arabic*]
+        \item Präparierung der Bilddaten \secdotfill  i
+        
         \begin{enumerate}[label*=.\arabic*]
-            \item Beschreibung des Datensatzes \subsecdotfill i
+            \item Vorbereitung und Beschreibung des Datensatzes \subsecdotfill i
             \item Labeling-Prozess \subsecdotfill i
-            \item Datenaugumentationstechniken \subsecdotfill i
-
+            \item Datenaugmentationstechniken \subsecdotfill i
         \end{enumerate}
-
-    \item \textbf{Modellierung und Training} \secdotfill  i
+        
+        \item Modellierung und Training \secdotfill  i
         \begin{enumerate}[label*=.\arabic*]
             \item Auswahl der Softwarebibliotheken \subsecdotfill i
             \item Modellarchitektur \subsecdotfill i
             \item Trainingsprozess und Hyperparameter-Optimierung \subsecdotfill i
-
         \end{enumerate}
-
-    \item \textbf{Validierung und Bewertng der Ergebnisse} \secdotfill i
+    
+        \item Validierung und Bewertung der Ergebnisse \secdotfill i
         \begin{enumerate}[label*=.\arabic*]
             \item  Methoden der Validierung \subsecdotfill i
             \item Bewertungsmethoden und Metriken \subsecdotfill i
             \item Analyse und Diskussion der Ergebnisse \subsecdotfill i
-
         \end{enumerate}
+    \end{enumerate}
 
-    
     \item \textbf{Fazit und Ausblick} \secdotfill  i
         \begin{enumerate}[label*=.\arabic*]
             \item  Zusammenfassung der Ergebnisse \subsecdotfill i
-            \item Diskussion der Ergebnisse \subsecdotfill i
             \item Ausblick auf Zukünftige Arbeiten \subsecdotfill i
-
         \end{enumerate}
     
     \preliminaryTOCend

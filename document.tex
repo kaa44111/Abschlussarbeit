@@ -4,6 +4,9 @@
 
 \documentclass[thesis]{mi-document}
 
+% Microtypografie aktivieren
+\usepackage{microtype}
+
 \bachelor % im Falle einer Masterarbeit \master
 
 % Variablen, die für das Deckblatt und Metadaten verwendet werden
@@ -18,12 +21,12 @@
 \phone{0941/133742666} % Optional
 \studSubject{Medizinische Informatik}
 \firstReviewer{Prof. Dr. Timo Baumann}
-\secondReviewer{[Zweitgutachter]}
+\secondReviewer{Prof. Dr. Brijnesh Jain}
 \advisor{GEFASOFT Automatisierung und Software GmbH}
 \address{Klenzestr. 2a, 93051 Regensburg}{} % Optional
 \mail{kasaamina@gmail.com}
 \studMail{amina.kasa@st.oth-regensburg.de}
-\dateHandedIn{[Abgabetermin der Arbeit]}
+\dateHandedIn{05.02.2025}
 \keywords{Enter;key;words;here}
 
 \bibliographystyle{apacite}
@@ -33,6 +36,11 @@
 
 \usepackage{emptypage}
 \pagenumbering{roman}
+
+\usepackage[acronym]{glossaries}
+\makeglossaries
+
+
 \begin{document}
 % ---------------------------------------------------------------
 
@@ -80,7 +88,23 @@
 \addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
 \lstlistoflistings % Optional
 \newpage
+
+% Abkürzungsverzeichnis
+\clearpage
+\addcontentsline{toc}{chapter}{Abkürzungsverzeichnis}
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
+
 % --------------------------------------------------------------
+\newacronym{ai}{AI}{Artificial Intelligence}
+\newacronym{ibv}{IBV}{industrielle Bildverarbeitung}
+\newacronym{dl}{DL}{Deep Learning}
+\newacronym{cnn}{CNNs}{Convolutional Neural Networks}
+\newacronym{knn}{KNNs}{Künstliche Neuronale Netze}
+\newacronym{bv}{BV}{Bildverarbeitung}
+\newacronym{bvl}{BV-Labor}{Bildverarbeitungs-Labor}
+\newacronym{cv}{CV}{Computer Vision}
+\newacronym{oe}{OE}{Objekterkennung}
+\newacronym{ml}{ML}{Maschinelles Lernen}
 
 \pagenumbering{arabic}
 \pagestyle{headings} % Seitennummern und Kapitelbezeichnungen anzeigen
@@ -90,7 +114,7 @@
     \include{chapters/2-stand_der_technik}
     \include{chapters/3-bilddaten}
     \include{chapters/4-modellierung_training}
-    \include{chapters/5-validierung}
+   % \include{chapters/5-validierung}
     \include{chapters/6-fazit_ausblick}
     
     % Kapitelbezeichnung in der rechten oberen Ecke entfernen
@@ -102,23 +126,5 @@
 \onehalfspacing
 \bibliography{references}
 \doublespacing
-
-% Anhang
-\appendix
-\include{misc/anhang}
-
-\begin{singlespace}
-\KOMAoptions{parskip=full}
-
-% Erklärung zur Lizenzierung der Arbeit (lizenzierung.tex) anhängen
-\include{misc/lizenzierung}
-
-% Stichwortverzeichnis anzeigen. Weiß nicht, warum das nicht nach dem Inhaltsverzeichnis kommt.
-\printindex
-\end{singlespace}
-
-% Inhalt des Datenträgers. Gehört meiner Meinung nach zum Anhang, aber was weiß ich schon. AS
-\newpage
-\input{misc/datenträger}
 
 \end{document}
